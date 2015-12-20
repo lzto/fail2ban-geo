@@ -114,12 +114,9 @@
 		
 		foreach($IPs as $ip)
 		{
-			if(!in_array($ip["iso"], $countries))
-			{
-				array_push($countries, $ip["iso"]);
-			}
+			array_push($countries, $ip["iso"]);
 		}
-		
+		$countries = array_unique($countries);
 		return array_slice($countries, 0, $amount);
 	}
 	
@@ -129,11 +126,9 @@
 		$list = array();
 		foreach($blocks as $block)
 		{
-			if(!in_array($block["ip"], $list))
-			{
-				array_push($list, $block["ip"]);
-			}
+			array_push($list, $block["ip"]);
 		}
+		$list = array_unique($list);
 		return count($list);
 	}
 	
@@ -148,11 +143,9 @@
 		$list = array();
 		foreach($blocks as $block)
 		{
-			if(!in_array($block["iso"], $list))
-			{
-				array_push($list, $block["iso"]);
-			}
+			array_push($list, $block["iso"]);
 		}
+		$list = array_unique($list);
 		return count($list);
 	}
 	
